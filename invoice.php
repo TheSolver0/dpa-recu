@@ -76,7 +76,7 @@
                                                                 echo $nom; ?></p>
                                                         <p class="text-muted m-l-30">
                                                             <?php if (isset($email))
-                                                                echo $email ?>,
+                                                                echo $email; ?>,
                                                                 <br> Cameroun,
                                                                 <br> Littoral,
                                                                 <br> Douala, Ndogbon - école royale
