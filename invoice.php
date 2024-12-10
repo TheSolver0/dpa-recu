@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <title>Enregistrement Master class DPA </title>
+    <title>Enregistrement Semaine du Digital </title>
     <!-- Favicon-->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <!-- Plugins Core Css -->
@@ -38,6 +38,7 @@
 
     $nom = htmlspecialchars(strip_tags($_GET['nom']));
     $email = htmlspecialchars(strip_tags($_GET['email']));
+    $somme = htmlspecialchars(strip_tags($_GET['somme']));
     ?>
 
     <section class="content" id="contentInvoice">
@@ -51,8 +52,8 @@
                                 <div class="col-md-12">
                                     <div class="white-box">
                                         <h3>
-                                            <b>INVOICE</b>
-                                            <span class="pull-right">#DPAmasterclass</span>
+                                            <b>Recu</b>
+                                            <span class="pull-right">#Semaine_du_digital</span>
                                         </h3>
                                         <hr>
                                         <div class="row">
@@ -61,7 +62,7 @@
                                                     <address>
                                                         <p class="font-bold">BILL FROM :</p>
                                                         <p class="text-muted">
-                                                            Digital Pulse Agency,
+                                                            Semaine du digital,
                                                             <br> Cameroun,
                                                             <br> Littoral,
                                                             <br> Douala, Ndogbon - école royale
@@ -98,24 +99,25 @@
                                                             <thead>
                                                                 <tr>
                                                                     <th class="text-center">#</th>
-                                                                    <th class="text-center">image</th>
-                                                                    <th class="text-center">Description</th>
-                                                                    <th class="text-center">Quantity</th>
-                                                                    <th class="text-center">Unit Cost</th>
+                                                                    <!-- <th class="text-center">image</th> -->
+                                                                    <th class="text-center">Objet</th>
+                                                                    <!-- <th class="text-center">Quantity</th> -->
+                                                                    <th class="text-center">Somme versée</th>
                                                                     <th class="text-right">Total</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
                                                                     <td class="text-center">1</td>
-                                                                    <td class="table-img text-center">
+                                                                    <!-- <td class="table-img text-center">
                                                                         <img src="assets/images/products/p-13.jpg" alt="">
+                                                                    </td> -->
+                                                                    <td class="text-center">Semaine Du Digital
                                                                     </td>
-                                                                    <td class="text-center">Comment heberger gratuitement
-                                                                    </td>
-                                                                    <td class="text-center">1</td>
-                                                                    <td class="text-center">5000 XAF</td>
-                                                                    <td class="text-right">5000 XAF</td>
+                                                                    <!-- <td class="text-center">1</td> -->
+                                                                    <td class="text-center"><?php if (isset($somme))
+                                                                echo $somme; ?> XAF</td>
+                                                                    <td class="text-right">5,000 XAF</td>
                                                                 </tr>
 
                                                             </tbody>
@@ -124,11 +126,14 @@
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="pull-right m-t-30 text-right">
-                                                        <p>Avance : 5,000 XAF</p>
-                                                        <p>Reste : 0 XAF </p>
+                                                        <p>Avance : <?php if (isset($somme))
+                                                                echo $somme; ?> XAF</p>
+                                                        <p>Reste :  <?php if (isset($somme))
+                                                                echo (5000-$somme); ?> XAF </p>
                                                         <hr>
                                                         <h3>
-                                                            <b>Total :</b> 5,000 XAF
+                                                            <b>Total :</b> <?php if (isset($somme))
+                                                                echo $somme; ?> XAF
                                                         </h3>
                                                     </div>
                                                     <div class="clearfix"></div>
